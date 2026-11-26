@@ -3,7 +3,7 @@
 set -euo pipefail
 
 APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source=lib/common.sh
+# shellcheck source=/dev/null
 source "$APP_DIR/lib/common.sh"
 VENV_DIR="$APP_DIR/.venv"
 PORT="${PORT:-5000}"

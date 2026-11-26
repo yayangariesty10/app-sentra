@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# hooks/pre-push - jalankan stage yang cepat sebelum push
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+echo "pre-push: menjalankan lint & test..."
+if ! "$ROOT/ci.sh" lint test; then
+    echo "PUSH DITOLAK: perbaiki error di atas, lalu push ulang." >&2
+    exit 1
+fi
